@@ -1,49 +1,59 @@
-* {
-    padding: 0;
+html, 
+body {
     margin: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-}
-
-html, body {
-    background-color: black;
+    padding: 0;
+    height: 100%;
 }
 
 nav {
+    overflow: hidden;
     width: 100%;
+    background: linear-gradient(to right,#ffffff, #59e4a8);
+    position: fixed;
+    top: 0;
+    height: 60px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 32px 128px;
+    box-shadow: 0px 2px 4px 0 rgba(0, 0,0 , .2);
 }
 
-nav div img{
-    width:50%;
-    border-radius: 50%;
+nav .logo {
+    font-size:1rem ;
+    width: 30%;
+    left: 5px;
+    position: relative;
+    top: -18px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+nav .logo img {
+    padding-top: 20px;
+    width: 55px;
 }
 
-nav ul li a {
+nav li {
+    display: inline;
+}
+
+nav a {
     text-decoration: none;
-    color: white;
-    font-size: 24px;
-    font-weight: 500;
-    padding: 10px;
-
-}
-
-nav ul li a:hover {
-    background-color: white;
-    border-radius: 20px;
     color: black;
-    transition: all 400ms ease-in-out;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0px 10px;
+    font-weight: bold;
+    transition: 0.15s;
 }
+
+nav a:hover {
+    color: aliceblue;
+}
+
+#nav-button {
+    display: none;
+}
+label {
+    display: none;
+}
+
 
 section{
     margin-top: 50px;
@@ -79,32 +89,134 @@ section{
 }
 
 #jadwal {
-  
+    padding: 64px 128px;
 }
 
 .jadwal-pelajaran {
+    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    background-color: #37372f;
+    border-radius: 10   px;
+
 }
 
 .jadwal-pelajaran-detail {
-  
+  margin: 0px auto;
+  display: inline-block;
+  text-align: center;
+  width: 170px;
+  height: 170px;
 }
 
-.jadwal-pelajaran-detail h1 {
-    text-align: center;
-    padding: 10px 10px;
+.jadwal-pelajaran-detail  h1 {
+    
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
 
-.jadwal-pelajaran-detail ul {
+.jadwal-pelajaran-detail h1:hover {
+    color: #f8f8f6;
+}
+
+.jadwal-pelajaran-detail .submenu{
+    width: 0;
+    height: 0;
     list-style: none;
-    text-align: center;
-    box-shadow: 2px 4px 0px 0px rgb(44, 44, 44);
+    color: #202020;
+    background-color: #fff;
+    border-radius: 7px;
+    overflow: hidden;
+    margin: 0px auto;
 }
 
+.jadwal-pelajaran-detail .submenu li {
+    color: #151515;
+    padding: 5px 10px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.jadwal-pelajaran-detail .submenu li:hover {
+    color: #f8f6f6;
+    background-color: #151515;
+    padding-left: 15px;
+}
+
+.jadwal-pelajaran-detail h1:hover + .submenu , .jadwal-pelajaran-detail .submenu:hover {
+    display: inline-block;
+    width: 150px;
+    height: 135px;
+    padding: 15px;
+    animation: openMenu 1s ease-in-out;
+}
+
+@keyframes openMenu {
+    0%{
+        margin: 0;
+        width: 0;
+        height: 0;
+        padding: 0;
+        border: 2px solid white;
+    }   
+    50%{
+        margin: 0;
+        width: 150px;
+        height: 0;
+        padding: 10px;
+    }
+}
+
+.jadwal-pelajaran-detail h1,
+.jadwal-pelajaran-detail ul,
 .jadwal-pelajaran-detail ul li {
-    margin-bottom: 2px;
+    transition-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+}
+
+
+#galeri {
+    padding: 64px 128px;
+}
+
+.galeri-judul {
+    margin-bottom: 24px;
+}
+
+.galeri-judul h1 {
+    font-size: 40px;
+}
+
+.galeri {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    margin-right: 0px;
+    place-content: center;
+    
+}
+
+.galeri-isi {
+    box-shadow: 0px 4px 4px red;
+    text-align: center;
+}
+
+.galeri-isi h1 {
+    padding: 0px 16px;
+    margin: 16px 0px;
+}
+.galeri-isi p {
+   padding: 0px 16px;
+   margin-bottom: 32px;
+}
+
+.galeri-isi img {
+    width: 450px;
 }
 
 footer {
@@ -119,8 +231,74 @@ footer div {
     justify-content: space-between;
 }
 
-@media screen and (max-width:992px){
-    body {
-        background-color: white;
+@media only screen and (max-width: 736px)
+and (orientation:portrait) {
+    nav{
+        align-items: center;
+    }
+
+    nav .logo{
+        width: 30%;
+        position: absolute;
+        left: 0px;
+    }
+    nav .logo img {
+        padding-top: 20px;
+    }
+
+    nav ul{
+        position: fixed;
+        top: 44px;
+        width: 100%;
+        background-color: #cdf7e5;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    nav li {
+        display: block;
+        text-align: center;
+        
+    }
+
+    nav li:hover {
+        background-color: darkcyan;
+    }
+
+    label {
+        display: block;
+        padding: 0px 16px;
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        right: 2%;
+    }
+
+    label:hover {
+        color: white;
+    }
+    nav #nav-button:checked~ul {
+        max-height: 100%;
+        transition: all 1s ease-in-out;
+    }
+
+    #jadwal{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .jadwal-pelajaran {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #galeri {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .galeri {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
     }
 }
